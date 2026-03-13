@@ -1,7 +1,7 @@
 // backend/routes.js
 const express = require("express");
 const router = express.Router();
-const User = require("./User");
+const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -45,6 +45,16 @@ router.post("/login", async (req, res) => {
     }
 
     user.password = undefined; // don't send password back
+    const token = jwt.sign(
+  { id: user._id },
+  process.env.JWT_SECRET,
+  { expiresIn: "7d" }
+);
+
+res.json({
+  message: "Login successful",
+  token
+});
 
     // 3️⃣ Success
     res.json({ message: "Login successful", user });
