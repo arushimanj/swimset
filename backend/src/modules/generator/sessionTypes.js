@@ -67,5 +67,24 @@ module.exports = {
   mixed: (user) => ({
     type: "mixed",
     mainSet: ["40x50 (25 sprint / 25 easy)"]
+  }),
+
+  recovery: (user) => ({
+    type: "recovery",
+    mainSet: [
+      "1000 easy swim",
+      "30 min continuous swim",
+      "15 min kick moderate",
+      "drill + loosen"
+    ]
+  }),
+
+  race: (user) => ({
+    type: "race",
+    mainSet: [
+      "4x50 race pace",
+      "2x100 broken",
+      "starts + turns"
+    ]
   })
 };
