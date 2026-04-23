@@ -35,34 +35,85 @@ module.exports = {
   },
 
   sprint: (user) => {
-    if (user.mainEvent === "50") {
-      return {
-        type: "sprint",
-        mainSet: [
-          "8x50 dive long rest",
-          "4x50 sprint short rest"
-        ]
-      };
-    }
+  const event = user.mainEvent;
 
-    if (user.mainEvent === "100") {
-      return {
-        type: "sprint",
-        mainSet: [
-          "6x100 (dive + broken + simulation)"
-        ]
-      };
-    }
+  if (event.includes("50")) {
+    return {
+      type: "sprint",
+      mainSet: [
+        "8x50 dive long rest",
+        "4x50 sprint short rest"
+      ]
+    };
+  }
 
-    if (user.mainEvent === "200") {
-      return {
-        type: "sprint",
-        mainSet: [
-          "3x200 (broken race simulation)"
-        ]
-      };
-    }
-  },
+  if (event.includes("100")) {
+    return {
+      type: "sprint",
+      mainSet: [
+        "6x100 (dive + broken + simulation)"
+      ]
+    };
+  }
+
+  if (event.includes("200")) {
+    return {
+      type: "sprint",
+      mainSet: [
+        "3x200 (broken race simulation)"
+      ]
+    };
+  }
+
+  // fallback
+  return {
+    type: "sprint",
+    mainSet: ["ASK COACH FOR MORE!"]
+  };
+},
+
+  LT: (user) => {
+  const event = user.mainEvent;
+
+  if (event.includes("50")) {
+    return {
+      type: "LT",
+      mainSet: [
+        "8x50 dive @ 5-7 min rest (max effort)",
+        "4x50 sprint @ 2:00"
+      ]
+    };
+  }
+
+  if (event.includes("100")) {
+    return {
+      type: "LT",
+      mainSet: [
+        "6x100:",
+        "1 & 3 dive straight",
+        "2 & 4 broken (2x50 w/20s rest)",
+        "5 & 6 race simulation (25-50-25 w/rest)"
+      ]
+    };
+  }
+
+  if (event.includes("200")) {
+    return {
+      type: "LT",
+      mainSet: [
+        "3x200:",
+        "1 straight dive",
+        "2 broken (2x100 w/30s)",
+        "3 broken (4x50 w/20s)"
+      ]
+    };
+  }
+
+  return {
+    type: "LT",
+    mainSet: ["6x100 threshold effort"]
+  };
+},
 
   mixed: (user) => ({
     type: "mixed",

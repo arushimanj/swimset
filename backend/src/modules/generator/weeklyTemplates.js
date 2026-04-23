@@ -4,10 +4,10 @@ module.exports = function generateWeeklyTemplate(user) {
   if (phase === "offSeason") {
     return {
       monday: ["aerobic", "mixed"],
-      tuesday: ["technique", "sprint"], // LT
+      tuesday: ["technique", "USRPT"],
       wednesday: ["recovery"],
       thursday: ["aerobic", "mixed"],
-      friday: ["technique", "sprint"], // USRPT
+      friday: ["technique", "LT"],
       saturday: ["recovery"]
     };
   }
