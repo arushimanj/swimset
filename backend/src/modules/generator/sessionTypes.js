@@ -5,13 +5,13 @@ module.exports = {
     const variants = [
       [
         "100 free / 50 kick / 50 drill",
-        "20x50 mainstroke kick",
-        "6x100 IM drill/swim"
+        "20 x 50 mainstroke kick",
+        "6 x 100 IM drill/swim"
       ],
       [
         "1000 mixed warmup",
-        "6x100 scull",
-        "9x100 drill variations"
+        "6 x 100 scull",
+        "9 x 100 drill variations"
       ]
     ];
 
@@ -23,8 +23,8 @@ module.exports = {
 
   aerobic: (user) => {
     const variants = [
-      ["800 pull", "2x400 swim", "4x200", "8x100"],
-      ["16x200 (8 pull, 8 swim)"],
+      ["800 pull", "2 x 400 swim", "4 x 200", "8 x 100", "16 x 50"],
+      ["16 x 200 (8 pull, 8 swim)"],
       ["50-100-150-200 ladder"]
     ];
 
@@ -41,8 +41,8 @@ module.exports = {
     return {
       type: "sprint",
       mainSet: [
-        "8x50 dive long rest",
-        "4x50 sprint short rest"
+        "8 x 50 dive long rest",
+        "4 x 50 sprint short rest"
       ]
     };
   }
@@ -51,7 +51,7 @@ module.exports = {
     return {
       type: "sprint",
       mainSet: [
-        "6x100 (dive + broken + simulation)"
+        "6 x 100 (dive + broken + simulator)"
       ]
     };
   }
@@ -60,7 +60,7 @@ module.exports = {
     return {
       type: "sprint",
       mainSet: [
-        "3x200 (broken race simulation)"
+        "3 x 200 (broken race simulation)"
       ]
     };
   }
@@ -79,8 +79,8 @@ module.exports = {
     return {
       type: "LT",
       mainSet: [
-        "8x50 dive @ 5-7 min rest (max effort)",
-        "4x50 sprint @ 2:00"
+        "8 x 50 dive @ 5-7 min rest (max effort)",
+        "4 x 50 sprint @ 2:00"
       ]
     };
   }
@@ -89,9 +89,9 @@ module.exports = {
     return {
       type: "LT",
       mainSet: [
-        "6x100:",
+        "6 x 100:",
         "1 & 3 dive straight",
-        "2 & 4 broken (2x50 w/20s rest)",
+        "2 & 4 broken (2 x 50 w/20s rest)",
         "5 & 6 race simulation (25-50-25 w/rest)"
       ]
     };
@@ -101,23 +101,23 @@ module.exports = {
     return {
       type: "LT",
       mainSet: [
-        "3x200:",
+        "3 x 200:",
         "1 straight dive",
-        "2 broken (2x100 w/30s)",
-        "3 broken (4x50 w/20s)"
+        "2 broken (2 x 100 w/30s)",
+        "3 broken (4 x 50 w/20s)"
       ]
     };
   }
 
   return {
     type: "LT",
-    mainSet: ["6x100 threshold effort"]
+    mainSet: ["6 x 100 threshold effort"]
   };
 },
 
   mixed: (user) => ({
     type: "mixed",
-    mainSet: ["40x50 (25 sprint / 25 easy)"]
+    mainSet: ["40 x 50 (25 sprint / 25 easy)"]
   }),
 
   recovery: (user) => ({
@@ -133,8 +133,8 @@ module.exports = {
   race: (user) => ({
     type: "race",
     mainSet: [
-      "4x50 race pace",
-      "2x100 broken",
+      "4 x 50 race pace",
+      "2 x 100 broken",
       "starts + turns"
     ]
   })
