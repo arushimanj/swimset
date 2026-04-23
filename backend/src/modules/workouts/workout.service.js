@@ -3,7 +3,7 @@ const parseTimeToSeconds = require("../../utils/timeParser");
 
 // CREATE WORKOUT
 exports.createWorkout = async (userId, data) => {
-  // ✅ Ensure sets exist
+  // check existence of set
   const parsedSets = (data.sets || []).map((set) => ({
     ...set,
     time: parseTimeToSeconds(set.time)
