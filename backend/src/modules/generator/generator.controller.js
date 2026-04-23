@@ -8,7 +8,7 @@ exports.generateWorkout = async (req, res) => {
     const { goal } = req.body;
 
     const workout = generatorService.generateWorkout(user, goal);
-
+x
     res.json(workout);
   } catch (err) {
     res.status(400).json({ error: err.message });

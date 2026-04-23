@@ -1,18 +1,27 @@
-const buildDistribution = require("./distribution");
-
 module.exports = function generateWeeklyTemplate(user) {
-  const sessions = user.sessionsPerWeek || 6;
+  const phase = user.phase || "offSeason";
 
-  const dist = buildDistribution(sessions);
+  if (phase === "offSeason") {
+    return {
+      monday: ["aerobic", "mixed"],
+      tuesday: ["technique", "sprint"], // LT
+      wednesday: ["recovery"],
+      thursday: ["aerobic", "mixed"],
+      friday: ["technique", "sprint"], // USRPT
+      saturday: ["recovery"]
+    };
+  }
 
-  const week = [];
+  if (phase === "taper") {
+    return {
+      monday: ["sprint"],
+      tuesday: ["technique"],
+      wednesday: ["sprint"],
+      thursday: ["recovery"],
+      friday: ["race"],
+      saturday: ["recovery"]
+    };
+  }
 
-  // fill week array
-  week.push(...Array(dist.technique).fill("technique"));
-  week.push(...Array(dist.aerobic).fill("aerobic"));
-  week.push(...Array(dist.sprint).fill("sprint"));
-  week.push(...Array(dist.mixed).fill("mixed"));
-
-  // simple shuffle (randomize order)
-  return week.sort(() => Math.random() - 0.5);
+  return {};
 };

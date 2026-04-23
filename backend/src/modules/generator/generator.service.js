@@ -1,6 +1,10 @@
 const archetypes = require("./archetypes");
 const calculatePaces = require("./paceCalculator");
 
+const generateWeeklyTemplate = require("./weeklyTemplates");
+const sessionTypes = require("./sessionTypes");
+
+// 🔥 SINGLE WORKOUT (you already had this — unchanged)
 exports.generateWorkout = (user, goal) => {
   const paces = calculatePaces(user);
 
@@ -17,13 +21,20 @@ exports.generateWorkout = (user, goal) => {
   };
 };
 
-const generateWeeklyTemplate = require("./weeklyTemplates");
-const sessionTypes = require("./sessionTypes");
-
+// 🔥 WEEKLY GENERATOR (FIXED VERSION)
 exports.generateWeek = (user) => {
   const template = generateWeeklyTemplate(user);
 
-  return template.map((type) => {
-    return sessionTypes[type](user);
-  });
+  const result = {};
+
+  for (const day in template) {
+    result[day] = template[day].map((type) => {
+      if (!sessionTypes[type]) {
+        throw new Error(`Unknown session type: ${type}`);
+      }
+      return sessionTypes[type](user);
+    });
+  }
+
+  return result;
 };
