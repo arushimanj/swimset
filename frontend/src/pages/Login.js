@@ -14,7 +14,17 @@ export default function Login({ setToken }) {
     localStorage.setItem("token", res.data.token);
     setToken(res.data.token);
   };
+  try {
+  const res = await API.post("/auth/login", {
+    email,
+    password
+  });
 
+  localStorage.setItem("token", res.data.token);
+  setToken(res.data.token);
+} catch (err) {
+  alert("Login failed");
+}
   return (
     <div className="card">
       <h2>Login</h2>

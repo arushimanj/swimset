@@ -5,8 +5,13 @@ export default function Register() {
   const [form, setForm] = useState({});
 
   const handleRegister = async () => {
-    await API.post("/auth/register", form);
-    alert("Registered!");
+    try {
+      await API.post("/auth/register", form);
+      alert("Registered!");
+    } catch (err) {
+      console.log(err.response?.data);
+      alert("Register failed");
+    }
   };
 
   return (
