@@ -25,6 +25,8 @@ exports.generateWeek = async (req, res) => {
 
     res.json(week);
   } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
+  console.log("🔥 FULL ERROR:", err);
+  console.log("🔥 MESSAGE:", err.message);
+  res.status(400).json({ error: err.message });
+}
 };
