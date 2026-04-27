@@ -72,6 +72,16 @@ module.exports = {
   };
 },
 
+  USRPT: (user) => ({
+  type: "USRPT",
+  mainSet: [
+    "3 rounds:",
+    "4 x 25 @ :45 (race pace)",
+    "4 x 50 @ 1:30 (race pace)",
+    "4 x 25 @ :45 (race pace)"
+  ]
+}),
+
   LT: (user) => {
   const event = user.mainEvent;
 
