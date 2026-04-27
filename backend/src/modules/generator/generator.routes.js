@@ -1,3 +1,4 @@
+const auth = require("../../middleware/auth");
 const express = require("express");
 const router = express.Router();
 
@@ -9,4 +10,4 @@ router.use(authMiddleware);
 router.post("/workout", controller.generateWorkout);
 
 module.exports = router;
-router.post("/week", controller.generateWeek);
+router.post("/week", auth, controller.generateWeek);

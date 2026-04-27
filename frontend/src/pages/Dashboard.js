@@ -5,7 +5,10 @@ export default function Dashboard({ token }) {
   const [week, setWeek] = useState(null);
 
   useEffect(() => {
-    const fetchWeek = async () => {
+  const fetchWeek = async () => {
+    try {
+      console.log("TOKEN:", token);
+
       const res = await API.post(
         "/generator/week",
         {},
@@ -16,11 +19,15 @@ export default function Dashboard({ token }) {
         }
       );
 
+      console.log("RESPONSE:", res.data);
       setWeek(res.data);
-    };
+    } catch (err) {
+      console.log("ERROR:", err.response?.data || err.message);
+    }
+  };
 
-    fetchWeek();
-  }, [token]);
+  fetchWeek();
+}, [token]);
 
   if (!week) return <p>Loading...</p>;
 
