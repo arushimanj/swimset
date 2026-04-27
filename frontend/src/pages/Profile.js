@@ -4,7 +4,9 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import API from "../api";
 
 export default function Profile() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(
+  JSON.parse(localStorage.getItem("user"))
+);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -12,6 +14,7 @@ export default function Profile() {
         const res = await API.get("/auth/me");
         console.log("USER DATA:", res.data);
         setUser(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data)); // update cache 
       } catch (err) {
         console.log("ERROR:", err.response?.data || err.message);
       }

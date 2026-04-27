@@ -13,6 +13,7 @@ export default function Login({ setToken, setPage }) {
       });
 
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user)); // cache logic
       setToken(res.data.token);
 
     } catch (err) {
