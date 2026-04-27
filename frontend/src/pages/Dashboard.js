@@ -33,21 +33,21 @@ export default function Dashboard({ token }) {
 
   return (
   <div className="container">
-    <h2>Your Week</h2>
+    <h1>Your Week</h1>
 
     {Object.entries(week).map(([day, sessions]) => (
       <div key={day} className="card">
-        <h3>{day.toUpperCase()}</h3>
+        <h2>{day.toUpperCase()}</h2>
 
         {sessions.map((s, i) => (
-          <div key={i} style={{ marginBottom: "10px" }}>
-            <strong>{s.type.toUpperCase()}</strong>
+          <div key={i} style={{ marginBottom: "15px" }}>
+            <h3>{s.type.toUpperCase()}</h3>
 
-            <ul>
+            <div style={{ lineHeight: "1.6" }}>
               {s.mainSet.map((item, idx) => (
-                <li key={idx}>{item}</li>
+                <div key={idx}>{item}</div>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>
