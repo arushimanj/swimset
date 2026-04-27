@@ -19,6 +19,7 @@ export default function Navbar({ setToken, setPage }) {
 
       <div style={{ display: "flex", gap: "15px" }}>
         <button onClick={() => setPage("dashboard")}>Dashboard</button>
+        <button onClick={() => setPage("coach")}>Coach</button>
         <button onClick={() => setPage("profile")}>Profile</button>
         <button onClick={handleLogout}>Logout</button>
       </div>

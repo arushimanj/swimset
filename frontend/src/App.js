@@ -5,10 +5,11 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
+import Coach from "./pages/Coach";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const [page, setPage] = useState("login");
+  const [page, setPage] = useState("dashboard");
 
   // not logged in
   if (!token) {
@@ -34,6 +35,7 @@ function App() {
 
     {page === "dashboard" && <Dashboard token={token} />}
     {page === "profile" && <Profile />}
+    {page === "coach" && <Coach token={token} />}
   </>
 );
 }

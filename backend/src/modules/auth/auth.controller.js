@@ -1,6 +1,6 @@
 const authService = require("./auth.service");
-
-// REGISTER
+const User = require("./auth.model");
+// reggieee
 exports.register = async (req, res) => {
   try {
     const result = await authService.register(req.body);
@@ -12,7 +12,7 @@ exports.register = async (req, res) => {
 }
 };
 
-// LOGIN
+// log in kiddos
 exports.login = async (req, res) => {
   try {
     const result = await authService.login(req.body);
@@ -22,4 +22,9 @@ exports.login = async (req, res) => {
   console.log("🔥 MESSAGE:", err.message);
   res.status(400).json({ error: err.message });
 }
+};
+// for the fancy profile!
+exports.getMe = async (req, res) => {
+  const user = await User.findById(req.userId).select("-password");
+  res.json(user);
 };
