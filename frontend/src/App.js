@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
+import Profile from "./pages/Profile";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -28,11 +29,12 @@ function App() {
 
   // logged in
   return (
-    <>
-      <Navbar setToken={setToken} setPage={setPage} />
-      <Dashboard token={token} />
-    </>
-  );
-}
+  <>
+    <Navbar setToken={setToken} setPage={setPage} />
+
+    {page === "dashboard" && <Dashboard token={token} />}
+    {page === "profile" && <Profile />}
+  </>
+);
 
 export default App;
