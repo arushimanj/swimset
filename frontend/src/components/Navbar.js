@@ -2,6 +2,7 @@ export default function Navbar({ setToken, setPage }) {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setToken(null);
+    setPage("login");
   };
 
   return (
