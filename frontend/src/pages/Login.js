@@ -1,7 +1,7 @@
 import { useState } from "react";
 import API from "../api";
 
-export default function Login({ setToken }) {
+export default function Login({ setToken, setPage }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,6 +14,7 @@ export default function Login({ setToken }) {
 
       localStorage.setItem("token", res.data.token);
       setToken(res.data.token);
+
     } catch (err) {
       console.log(err.response?.data);
       alert("Login failed");
@@ -23,16 +24,25 @@ export default function Login({ setToken }) {
   return (
     <div className="card">
       <h2>Login</h2>
-      <input
-        placeholder="email"
-        onChange={e => setEmail(e.target.value)}
-      />
-      <input
-        placeholder="password"
-        type="password"
-        onChange={e => setPassword(e.target.value)}
-      />
+
+      <input placeholder="email"
+        onChange={e => setEmail(e.target.value)} />
+
+      <input type="password" placeholder="password"
+        onChange={e => setPassword(e.target.value)} />
+
       <button onClick={handleLogin}>Login</button>
+
+      <p className="auth-text">
+  Don't have an account?
+</p>
+
+<button
+  className="secondary-btn"
+  onClick={() => setPage("register")}
+>
+  Create Account
+</button>
     </div>
   );
 }
