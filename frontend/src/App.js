@@ -13,20 +13,19 @@ function App() {
 
   // not logged in
   if (!token) {
-    return (
-      <div className="container">
-        <h1>SwimSet</h1>
+  return (
+    <div className="container">
+      <h1>SwimSet</h1>
 
-        {page === "login" && (
-          <Login setToken={setToken} setPage={setPage} />
-        )}
-
-        {page === "register" && (
-          <Register setPage={setPage} />
-        )}
-      </div>
-    );
-  }
+      {}
+      {page === "register" ? (
+        <Register setPage={setPage} />
+      ) : (
+        <Login setToken={setToken} setPage={setPage} />
+      )}
+    </div>
+  );
+}
 
   // logged in
   return (
