@@ -36,5 +36,6 @@ function App() {
     {page === "profile" && <Profile />}
   </>
 );
+}
 
 export default App;
