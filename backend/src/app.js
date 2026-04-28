@@ -17,6 +17,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/analytics", analyticsRoutes);
 app.use("/api/generator", generatorRoutes);
+app.use("/api/logbook", require("./modules/logbook/logbook.routes"));
 // Test route
 app.get("/", (req, res) => {
   res.send("SwimSet API running");

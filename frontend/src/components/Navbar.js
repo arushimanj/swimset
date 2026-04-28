@@ -23,6 +23,7 @@ export default function Navbar({ setToken, setPage }) {
         <button onClick={() => setPage("coach")}>Coach</button>
         <button onClick={() => setPage("profile")}>Profile</button>
         <button onClick={handleLogout}>Logout</button>
+        <button onClick={() => setPage("logbook")}>Logbook</button>
       </div>
     </div>
   );

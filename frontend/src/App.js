@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import Coach from "./pages/Coach";
+import Logbook from "./pages/Logbook";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -35,6 +36,7 @@ function App() {
     {page === "dashboard" && <Dashboard token={token} />}
     {page === "profile" && <Profile />}
     {page === "coach" && <Coach token={token} />}
+    {page === "logbook" && <Logbook />}
   </>
 );
 }
